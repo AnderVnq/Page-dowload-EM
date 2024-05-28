@@ -1,3 +1,57 @@
-<div>
-    
+---
+import ButtonBase from "./ButtonBase.astro"
+
+---
+
+<div class="w-auto  ">
+    <div class="bg-cover bg-center h-[500px]" style="background-image: url('/images/bg-img3.png');">
+        <div class=" flex flex-col justify-center items-center h-full">
+            <h1 id="texto-generate" class="  text-slate-300 font-extrabold text-[45px]">
+                
+            </h1>
+            <h2 class=" text-slate-400 text-base font-normal mt-4 mb-7">Para La Empresa ETHSA </h2>
+            <ButtonBase text_btn="Descarga Aquí"/>
+        </div>
+      </div>
 </div>
+
+
+
+<script>
+    const words = ["Programa Control De Mantenimientos", "Welcome to my website!", "This is a typewriter effect."];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    
+    function type() {
+      currentWord = words[i];
+      if (isDeleting) {
+        // const element = document.getElementById("texto-generate")
+        // if (element !== null){
+        //     element.textContent= currentWord.substring(0, j-1);
+        // }
+
+        // j--;
+        // if (j == 0) {
+        //   isDeleting = false;
+        //   i++;
+        //   if (i == words.length) {
+        //     i = 0;
+        //   }
+        // }
+      } else {
+        const element =document.getElementById("texto-generate")
+        if(element !== null){
+            element.textContent = currentWord.substring(0, j+1);
+        }
+        j++;
+        if (j == currentWord.length) {
+          isDeleting = true;
+        }
+      }
+      setTimeout(type, 80);
+    }
+    
+    type();
+</script>
