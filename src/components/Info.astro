@@ -1,16 +1,51 @@
+---
+import CardInfo from "./CardInfo.astro"
 
-<section class=" bg-neutral-950 h-[500px]">
+
+
+const info =[
+ 
+
+    {'titulo':"Gestión de Mantenimientos Internos y Externos",
+
+    'description':"Nuestra aplicación permite registrar y gestionar de manera eficiente todos los mantenimientos de vehículos, ya sean realizados internamente o externamente por contratistas. Esto incluye asignaciones detalladas a conductores, mecánicos, y talleres específicos, asegurando un seguimiento exhaustivo y preciso de cada tarea de mantenimiento",
+    },
+    {
+    'titulo':"Administración de Conductores, Vehículos y Talleres",
+    'description':"Con nuestra solución, puedes administrar fácilmente toda la información relevante de los conductores, vehículos y talleres asociados. Desde los datos del conductor hasta los detalles específicos de cada vehículo y las capacidades de cada taller, la aplicación centraliza toda la información, facilitando la asignación de trabajos y el mantenimiento del historial de cada unidad.",
+    },
+    {
+    'titulo':"Registro Detallado y Seguimiento de Contratistas y Pagos",
+
+    'description':"La aplicación proporciona herramientas robustas para el registro y seguimiento de la gestión de pagos conboletas y facturas. Puedes registrar y monitorear detalles específicos de cada contrato demantenimiento, mantener un historial claro de todas las transacciones financieras. Esto mejora la transparencia y la eficacia en la gestión de mantenimientostercerizados y el control financiero."
+    }
+]
+
+
+
+
+
+
+---
+
+
+<section class=" bg-neutral-950 ">
     <hr class="top-0 h-[2px] w-full min-w-[18rem] border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent bg-center md:my-9">
-    <div class="h-full">
+    <div class="">
         <div class="flex justify-center mt-10 mb-5">
             <h2 class="text-slate-300 text-3xl font-semibold">El Software Ofrece</h2>
         </div>
-        <div class=" flex justify-center">
+        <div class="flex justify-center">
             <div class=" items-center px-10 py-[2px] rounded-sm bg-orange-400"></div>
         </div>
+        <div class="flex flex-col md:flex-row mt-8  gap-5 p-4">
+            {
+                info.map(data =>(
+                    <CardInfo title={data.titulo} description={data.description}/>
+                ))
+            }
+        </div>
     </div>
-    
-    <div class="">
-        
-    </div>
+    <hr class="top-0 h-[2px] w-full min-w-[18rem] border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent bg-center md:my-4">
 </section>
+
