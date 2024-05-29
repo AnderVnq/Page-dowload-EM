@@ -1,3 +1,59 @@
-<section>
-    
+
+
+
+
+<style>
+    .animate-bounce{
+        animation: bounce 1s infinite;
+    }	
+
+    @keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+</style>
+
+<section class=" bg-neutral-950 mb-4 rounded-lg">
+    <div class="max-w-4xl mx-auto text-center  p-8">
+        <h2 class="text-3xl text-slate-300 font-semibold mb-4">¡Descarga nuestra aplicación!</h2>
+        <p class="text-lg text-slate-500 mb-10">Haz clic en el botón de abajo para descargar nuestra aplicación y aprovechar al máximo todas sus funciones.</p>
+        
+        <!-- Botón de Descarga -->
+        <button id="downloadButton" class="animate-bounce bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800">Descargar App</button>
+    </div>
 </section>
+
+
+
+<script>
+// Función para descargar la aplicación cuando se hace clic en el botón
+function descargarApp() {
+    // URL de tu archivo de instalación de la aplicación
+    const urlDeDescarga = 'images/bg-image.png'; // Cambia esto por la ruta de tu archivo de instalación
+
+    // Crear un elemento <a> oculto para iniciar la descarga
+    const $elementoDescarga = document.createElement('a');
+    $elementoDescarga.setAttribute('href', urlDeDescarga);
+    $elementoDescarga.setAttribute('download', 'images/bg-image.png'); // Nombre de tu archivo de descarga
+    $elementoDescarga.style.display = 'none';
+    document.body.appendChild($elementoDescarga);
+
+    // Simular un clic en el enlace de descarga
+    $elementoDescarga.click();
+
+    // Remover el elemento del DOM después de la descarga
+    document.body.removeChild($elementoDescarga);
+}
+
+// Asociar la función descargarApp al evento click del botón
+    const $button = document.getElementById('downloadButton');
+        if ($button) {
+            $button.addEventListener('click', descargarApp);
+        }
+</script>
